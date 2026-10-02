@@ -1,9 +1,14 @@
 extends Node2D
 
-const shown = preload("res://assets/revealed.png")
+const shownSprite = preload("res://assets/revealed.png")
+const hiddenSprite = preload("res://assets/hidden.png")
 @onready var sprite = $Sprite2D
-@onready var text = $Label
+@onready var label = $Label
 
 func showBlock(letter: String) -> void:
-	sprite.texture = shown
-	text.text = letter
+	sprite.texture = shownSprite
+	label.text = letter
+
+func reset() -> void:
+	sprite.texture = hiddenSprite
+	label.text = ""
