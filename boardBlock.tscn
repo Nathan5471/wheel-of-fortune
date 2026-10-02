@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://c8u21wfig4lxw"]
 
-[ext_resource type="Script" uid="uid://c4myo8cb2hq64" path="res://blockManager.gd" id="1_igb1d"]
+[ext_resource type="Script" uid="uid://c4myo8cb2hq64" path="res://scripts/blockManager.gd" id="1_igb1d"]
 [ext_resource type="Texture2D" uid="uid://bcxebj6q5ec0s" path="res://assets/hidden.png" id="2_t6f2k"]
 [ext_resource type="FontFile" uid="uid://dp6c2surh0ijj" path="res://assets/Helvetica Black Condensed.otf" id="3_t6f2k"]
 
