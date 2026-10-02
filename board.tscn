@@ -1,3 +1,168 @@
 [gd_scene format=3 uid="uid://df11e00x4tqsy"]
 
+[ext_resource type="PackedScene" uid="uid://c8u21wfig4lxw" path="res://boardBlock.tscn" id="1_psm7c"]
+[ext_resource type="Texture2D" uid="uid://6nkxhm5rp2cq" path="res://assets/wheel.png" id="2_psm7c"]
+
 [node name="Board" type="Node2D" unique_id=1459069373]
+
+[node name="Blocks" type="Node" parent="." unique_id=751334861]
+
+[node name="BoardBlock" parent="Blocks" unique_id=1496367944 instance=ExtResource("1_psm7c")]
+position = Vector2(-690, -281)
+
+[node name="BoardBlock2" parent="Blocks" unique_id=1354579291 instance=ExtResource("1_psm7c")]
+position = Vector2(-565, -281)
+
+[node name="BoardBlock3" parent="Blocks" unique_id=1131235799 instance=ExtResource("1_psm7c")]
+position = Vector2(-440, -281)
+
+[node name="BoardBlock4" parent="Blocks" unique_id=1505649867 instance=ExtResource("1_psm7c")]
+position = Vector2(-315, -281)
+
+[node name="BoardBlock5" parent="Blocks" unique_id=1434808266 instance=ExtResource("1_psm7c")]
+position = Vector2(-190, -281)
+
+[node name="BoardBlock6" parent="Blocks" unique_id=1236764921 instance=ExtResource("1_psm7c")]
+position = Vector2(-65, -281)
+
+[node name="BoardBlock7" parent="Blocks" unique_id=1455904162 instance=ExtResource("1_psm7c")]
+position = Vector2(60, -281)
+
+[node name="BoardBlock8" parent="Blocks" unique_id=1284855731 instance=ExtResource("1_psm7c")]
+position = Vector2(185, -281)
+
+[node name="BoardBlock9" parent="Blocks" unique_id=1896843149 instance=ExtResource("1_psm7c")]
+position = Vector2(310, -281)
+
+[node name="BoardBlock10" parent="Blocks" unique_id=361827602 instance=ExtResource("1_psm7c")]
+position = Vector2(435, -281)
+
+[node name="BoardBlock11" parent="Blocks" unique_id=1545642402 instance=ExtResource("1_psm7c")]
+position = Vector2(560, -281)
+
+[node name="BoardBlock12" parent="Blocks" unique_id=1093472526 instance=ExtResource("1_psm7c")]
+position = Vector2(685, -281)
+
+[node name="BoardBlock13" parent="Blocks" unique_id=1367852101 instance=ExtResource("1_psm7c")]
+position = Vector2(-815, -96)
+
+[node name="BoardBlock14" parent="Blocks" unique_id=728628439 instance=ExtResource("1_psm7c")]
+position = Vector2(-690, -96)
+
+[node name="BoardBlock15" parent="Blocks" unique_id=1432595166 instance=ExtResource("1_psm7c")]
+position = Vector2(-565, -96)
+
+[node name="BoardBlock16" parent="Blocks" unique_id=151406079 instance=ExtResource("1_psm7c")]
+position = Vector2(-440, -96)
+
+[node name="BoardBlock17" parent="Blocks" unique_id=1600908423 instance=ExtResource("1_psm7c")]
+position = Vector2(-315, -96)
+
+[node name="BoardBlock18" parent="Blocks" unique_id=1096718144 instance=ExtResource("1_psm7c")]
+position = Vector2(-190, -96)
+
+[node name="BoardBlock19" parent="Blocks" unique_id=2141296658 instance=ExtResource("1_psm7c")]
+position = Vector2(-65, -96)
+
+[node name="BoardBlock20" parent="Blocks" unique_id=1977542261 instance=ExtResource("1_psm7c")]
+position = Vector2(60, -96)
+
+[node name="BoardBlock21" parent="Blocks" unique_id=1884053495 instance=ExtResource("1_psm7c")]
+position = Vector2(185, -96)
+
+[node name="BoardBlock22" parent="Blocks" unique_id=748679918 instance=ExtResource("1_psm7c")]
+position = Vector2(310, -96)
+
+[node name="BoardBlock23" parent="Blocks" unique_id=318602397 instance=ExtResource("1_psm7c")]
+position = Vector2(435, -96)
+
+[node name="BoardBlock24" parent="Blocks" unique_id=1998767707 instance=ExtResource("1_psm7c")]
+position = Vector2(560, -96)
+
+[node name="BoardBlock25" parent="Blocks" unique_id=763284510 instance=ExtResource("1_psm7c")]
+position = Vector2(685, -96)
+
+[node name="BoardBlock26" parent="Blocks" unique_id=1409234692 instance=ExtResource("1_psm7c")]
+position = Vector2(810, -96)
+
+[node name="BoardBlock27" parent="Blocks" unique_id=297379415 instance=ExtResource("1_psm7c")]
+position = Vector2(-815, 89)
+
+[node name="BoardBlock28" parent="Blocks" unique_id=1952667169 instance=ExtResource("1_psm7c")]
+position = Vector2(-690, 89)
+
+[node name="BoardBlock29" parent="Blocks" unique_id=1600859495 instance=ExtResource("1_psm7c")]
+position = Vector2(-565, 89)
+
+[node name="BoardBlock30" parent="Blocks" unique_id=1765823437 instance=ExtResource("1_psm7c")]
+position = Vector2(-440, 89)
+
+[node name="BoardBlock31" parent="Blocks" unique_id=962003316 instance=ExtResource("1_psm7c")]
+position = Vector2(-315, 89)
+
+[node name="BoardBlock32" parent="Blocks" unique_id=1769256010 instance=ExtResource("1_psm7c")]
+position = Vector2(-190, 89)
+
+[node name="BoardBlock33" parent="Blocks" unique_id=997753057 instance=ExtResource("1_psm7c")]
+position = Vector2(-65, 89)
+
+[node name="BoardBlock34" parent="Blocks" unique_id=35819263 instance=ExtResource("1_psm7c")]
+position = Vector2(60, 89)
+
+[node name="BoardBlock35" parent="Blocks" unique_id=1392639889 instance=ExtResource("1_psm7c")]
+position = Vector2(185, 89)
+
+[node name="BoardBlock36" parent="Blocks" unique_id=1407122817 instance=ExtResource("1_psm7c")]
+position = Vector2(310, 89)
+
+[node name="BoardBlock37" parent="Blocks" unique_id=1074495138 instance=ExtResource("1_psm7c")]
+position = Vector2(435, 89)
+
+[node name="BoardBlock38" parent="Blocks" unique_id=1365313482 instance=ExtResource("1_psm7c")]
+position = Vector2(560, 89)
+
+[node name="BoardBlock39" parent="Blocks" unique_id=1497232903 instance=ExtResource("1_psm7c")]
+position = Vector2(685, 89)
+
+[node name="BoardBlock40" parent="Blocks" unique_id=952251788 instance=ExtResource("1_psm7c")]
+position = Vector2(810, 89)
+
+[node name="BoardBlock41" parent="Blocks" unique_id=1211166959 instance=ExtResource("1_psm7c")]
+position = Vector2(-690, 274)
+
+[node name="BoardBlock42" parent="Blocks" unique_id=1045824571 instance=ExtResource("1_psm7c")]
+position = Vector2(-565, 274)
+
+[node name="BoardBlock43" parent="Blocks" unique_id=524419807 instance=ExtResource("1_psm7c")]
+position = Vector2(-440, 274)
+
+[node name="BoardBlock44" parent="Blocks" unique_id=1393306838 instance=ExtResource("1_psm7c")]
+position = Vector2(-315, 274)
+
+[node name="BoardBlock45" parent="Blocks" unique_id=1924810475 instance=ExtResource("1_psm7c")]
+position = Vector2(-190, 274)
+
+[node name="BoardBlock46" parent="Blocks" unique_id=1400386131 instance=ExtResource("1_psm7c")]
+position = Vector2(-65, 274)
+
+[node name="BoardBlock47" parent="Blocks" unique_id=100428445 instance=ExtResource("1_psm7c")]
+position = Vector2(60, 274)
+
+[node name="BoardBlock48" parent="Blocks" unique_id=2020441224 instance=ExtResource("1_psm7c")]
+position = Vector2(185, 274)
+
+[node name="BoardBlock49" parent="Blocks" unique_id=1112958961 instance=ExtResource("1_psm7c")]
+position = Vector2(310, 274)
+
+[node name="BoardBlock50" parent="Blocks" unique_id=173953071 instance=ExtResource("1_psm7c")]
+position = Vector2(435, 274)
+
+[node name="BoardBlock51" parent="Blocks" unique_id=144900501 instance=ExtResource("1_psm7c")]
+position = Vector2(560, 274)
+
+[node name="BoardBlock52" parent="Blocks" unique_id=263486363 instance=ExtResource("1_psm7c")]
+position = Vector2(685, 274)
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1366853632]
+position = Vector2(-3, -3)
+texture = ExtResource("2_psm7c")
