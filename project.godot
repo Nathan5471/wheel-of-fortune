@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Wheel of Fortune"
-run/main_scene="uid://df11e00x4tqsy"
+run/main_scene="uid://qe26w12dhbv"
 config/features=PackedStringArray("4.7", "GL Compatibility")
 config/icon="res://icon.svg"
 

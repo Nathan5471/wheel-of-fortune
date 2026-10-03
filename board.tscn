@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://dwc1qeyimj1pb" path="res://scripts/boardManager.gd" id="1_8l818"]
 [ext_resource type="PackedScene" uid="uid://c8u21wfig4lxw" path="res://boardBlock.tscn" id="1_psm7c"]
-[ext_resource type="Texture2D" uid="uid://6nkxhm5rp2cq" path="res://assets/wheel.png" id="2_psm7c"]
+[ext_resource type="Texture2D" uid="uid://bbu32gvjr8bv8" path="res://assets/board.png" id="3_8l818"]
 
 [node name="Board" type="Node2D" unique_id=1459069373]
 script = ExtResource("1_8l818")
@@ -167,7 +167,7 @@ position = Vector2(685, 274)
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1366853632]
 position = Vector2(-3, -3)
-texture = ExtResource("2_psm7c")
+texture = ExtResource("3_8l818")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=787966701]
 zoom = Vector2(0.5, 0.5)
