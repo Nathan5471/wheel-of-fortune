@@ -2,12 +2,17 @@
 
 [ext_resource type="Texture2D" uid="uid://1vas5v244xew" path="res://assets/wheel.png" id="1_8m8ww"]
 [ext_resource type="Script" uid="uid://cuhvm2003e126" path="res://scripts/wheelManager.gd" id="1_e0ure"]
+[ext_resource type="Texture2D" uid="uid://bbwnv4mf55o3f" path="res://assets/pointer.png" id="3_gwn81"]
 
 [node name="Wheel" type="Node2D" unique_id=167082871]
 script = ExtResource("1_e0ure")
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1718294500]
+[node name="WheelSprite" type="Sprite2D" parent="." unique_id=1718294500]
 texture = ExtResource("1_8m8ww")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1144352203]
 zoom = Vector2(0.33, 0.33)
+
+[node name="PointerSprite" type="Sprite2D" parent="." unique_id=940352012]
+position = Vector2(0, -690)
+texture = ExtResource("3_gwn81")
