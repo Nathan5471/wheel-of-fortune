@@ -1,0 +1,93 @@
+[gd_scene format=3 uid="uid://d0h3kspwq1dxd"]
+
+[ext_resource type="Script" uid="uid://ci6n41lpajthc" path="res://scripts/scoreManager.gd" id="1_li7cy"]
+[ext_resource type="FontFile" uid="uid://dp6c2surh0ijj" path="res://assets/Helvetica Black Condensed.otf" id="1_sbgn1"]
+
+[node name="ScoreCards" type="Node2D" unique_id=371776815]
+script = ExtResource("1_li7cy")
+
+[node name="Player1Box" type="ColorRect" parent="." unique_id=1786531524]
+offset_left = -574.0
+offset_right = -224.0
+offset_bottom = 200.0
+color = Color(0.80784315, 0.1254902, 0.16078432, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="Player1Label" type="Label" parent="." unique_id=1155037525]
+offset_left = -574.0
+offset_right = -224.0
+offset_bottom = 120.0
+theme_override_fonts/font = ExtResource("1_sbgn1")
+theme_override_font_sizes/font_size = 82
+text = "$0"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Player1Name" type="Label" parent="." unique_id=911585203]
+offset_left = -574.0
+offset_top = 119.0
+offset_right = -224.0
+offset_bottom = 199.0
+theme_override_fonts/font = ExtResource("1_sbgn1")
+theme_override_font_sizes/font_size = 64
+text = "PLAYER 1"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Player2Box" type="ColorRect" parent="." unique_id=1503599999]
+offset_left = -175.0
+offset_right = 175.0
+offset_bottom = 200.0
+color = Color(0.9764706, 0.84313726, 0.10980392, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="Player2Label" type="Label" parent="." unique_id=949319543]
+offset_left = -175.0
+offset_right = 175.0
+offset_bottom = 120.0
+theme_override_fonts/font = ExtResource("1_sbgn1")
+theme_override_font_sizes/font_size = 82
+text = "$0"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Player2Name" type="Label" parent="." unique_id=309363221]
+offset_left = -175.0
+offset_top = 120.0
+offset_right = 175.0
+offset_bottom = 200.0
+theme_override_fonts/font = ExtResource("1_sbgn1")
+theme_override_font_sizes/font_size = 64
+text = "PLAYER 2"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Player3Box" type="ColorRect" parent="." unique_id=767699679]
+offset_left = 221.0
+offset_right = 571.0
+offset_bottom = 200.0
+color = Color(0, 0.2784314, 0.67058825, 1)
+
+[node name="Player3Label" type="Label" parent="." unique_id=1639148349]
+offset_left = 221.0
+offset_right = 571.0
+offset_bottom = 120.0
+theme_override_fonts/font = ExtResource("1_sbgn1")
+theme_override_font_sizes/font_size = 82
+text = "$0"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Player3Name" type="Label" parent="." unique_id=986706052]
+offset_left = 221.0
+offset_top = 120.0
+offset_right = 571.0
+offset_bottom = 200.0
+theme_override_fonts/font = ExtResource("1_sbgn1")
+theme_override_font_sizes/font_size = 64
+text = "PLAYER 3"
+horizontal_alignment = 1
+vertical_alignment = 1

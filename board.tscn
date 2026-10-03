@@ -7,7 +7,8 @@
 [node name="Board" type="Node2D" unique_id=1459069373]
 script = ExtResource("1_8l818")
 
-[node name="Blocks" type="Node" parent="." unique_id=751334861]
+[node name="Blocks" type="Node2D" parent="." unique_id=683586113]
+z_index = 1
 
 [node name="BoardBlock1" parent="Blocks" unique_id=1496367944 instance=ExtResource("1_psm7c")]
 position = Vector2(-690, -281)
@@ -168,6 +169,3 @@ position = Vector2(685, 274)
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1366853632]
 position = Vector2(-3, -3)
 texture = ExtResource("3_8l818")
-
-[node name="Camera2D" type="Camera2D" parent="." unique_id=787966701]
-zoom = Vector2(0.5, 0.5)
