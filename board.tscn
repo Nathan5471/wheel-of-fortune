@@ -171,3 +171,12 @@ texture = ExtResource("2_psm7c")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=787966701]
 zoom = Vector2(0.5, 0.5)
+
+[node name="LineEdit" type="LineEdit" parent="." unique_id=1634204846]
+offset_left = -771.0
+offset_top = 446.0
+offset_right = 766.0
+offset_bottom = 548.0
+theme_override_font_sizes/font_size = 64
+
+[connection signal="text_submitted" from="LineEdit" to="." method="_on_line_edit_text_submitted"]

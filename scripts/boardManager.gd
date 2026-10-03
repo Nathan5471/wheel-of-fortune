@@ -4,7 +4,8 @@ var boardText: Array[String] = []
 var state = false
 
 func formatRow(row: String, intendedLength: int) -> Array[String]:
-	var formattedRow: Array[String] = row.split("")
+	var formattedRow: Array[String] = []
+	formattedRow.assign(row.split(""))
 	for i in range(formattedRow.size()):
 		if (formattedRow[i] == " "):
 			formattedRow[i] = ""
@@ -20,16 +21,25 @@ func formatRow(row: String, intendedLength: int) -> Array[String]:
 
 func setText(text: String) -> void:
 	var words = text.split(" ")
+	print("Words:", words)
 	var rows: Array[String] = ["", "", "", ""]
+	print("Rows:", rows)
 	var currentRow = 1 if (text.length() <= 40) else 0
 	while true:
+		print("Currnet Row:", currentRow)
 		for word in words:
+			print("Current Word:", word)
 			while true:
 				var characterLimit = 14 if (currentRow == 1 || currentRow == 2) else 12
-				if (characterLimit - rows[currentRow].length() < 1):
+				print("Characters Remaining:", characterLimit - rows[currentRow].length())
+				if (characterLimit - rows[currentRow].length() < 1 + word.length()):
 					currentRow += 1
+					print("Current Row:", currentRow)
+					continue
 				else:
 					rows[currentRow] = word if (rows[currentRow] == "") else rows[currentRow] + " " + word
+					print("Row:", rows[currentRow])
+					break
 		if (rows[3] != "" && rows[0] == ""):
 			rows = ["", "", "", ""]
 			currentRow = 0
@@ -37,6 +47,7 @@ func setText(text: String) -> void:
 		break
 	var newBoard: Array[String] = []
 	for i in range(4):
+		print("Formatted Row:", formatRow(rows[i], 14 if (i == 1 || i == 2) else 12))
 		newBoard = newBoard + formatRow(rows[i], 14 if (i == 1 || i == 2) else 12)
 	boardText = newBoard
 	
@@ -54,11 +65,11 @@ func resetBoard() -> void:
 		var block = get_node("Blocks/BoardBlock" + str(i))
 		block.reset()
 
-func _unhandled_input(event: InputEvent) -> void:
-	if event.is_action_pressed("ui_accept"):
-		if (!state):
-			revealBoard()
-			state = true
-		else:
-			resetBoard()
-			state = false
+func _on_line_edit_text_submitted(newText: String) -> void:
+	setText(newText)
+	if (!state):
+		revealBoard()
+		state = true
+	else:
+		resetBoard()
+		state = false
