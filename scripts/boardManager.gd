@@ -1,7 +1,8 @@
 extends Node2D
 
 var boardText: Array[String] = []
-var state = false
+const letters: Array[String] = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"]
+var revealedLetters: Array[String] = []
 
 func formatRow(row: String, intendedLength: int) -> Array[String]:
 	var formattedRow: Array[String] = []
@@ -21,24 +22,17 @@ func formatRow(row: String, intendedLength: int) -> Array[String]:
 
 func setText(text: String) -> void:
 	var words = text.split(" ")
-	print("Words:", words)
 	var rows: Array[String] = ["", "", "", ""]
-	print("Rows:", rows)
 	var currentRow = 1 if (text.length() <= 40) else 0
 	while true:
-		print("Currnet Row:", currentRow)
 		for word in words:
-			print("Current Word:", word)
 			while true:
 				var characterLimit = 14 if (currentRow == 1 || currentRow == 2) else 12
-				print("Characters Remaining:", characterLimit - rows[currentRow].length())
 				if (characterLimit - rows[currentRow].length() < 1 + word.length()):
 					currentRow += 1
-					print("Current Row:", currentRow)
 					continue
 				else:
 					rows[currentRow] = word if (rows[currentRow] == "") else rows[currentRow] + " " + word
-					print("Row:", rows[currentRow])
 					break
 		if (rows[3] != "" && rows[0] == ""):
 			rows = ["", "", "", ""]
@@ -47,29 +41,31 @@ func setText(text: String) -> void:
 		break
 	var newBoard: Array[String] = []
 	for i in range(4):
-		print("Formatted Row:", formatRow(rows[i], 14 if (i == 1 || i == 2) else 12))
 		newBoard = newBoard + formatRow(rows[i], 14 if (i == 1 || i == 2) else 12)
 	boardText = newBoard
-	
+
+func showGuessedBoard() -> void:
+	for i in range(1,53):
+		var text = boardText[i-1]
+		if (text == ""):
+			continue
 
 func revealBoard() -> void:
 	for i in range(1,53):
 		var text = boardText[i-1]
 		if (text == ""):
 			continue
+		if (text in letters && !(text in revealedLetters)):
+			text == ""
 		var block = get_node("Blocks/BoardBlock" + str(i))
 		block.showBlock(text)
+		
+func addGuess(guess: String) -> void:
+	if (!(guess in revealedLetters)):
+		revealedLetters.append(guess)
+		revealBoard()
 
 func resetBoard() -> void:
 	for i in range(1,53):
 		var block = get_node("Blocks/BoardBlock" + str(i))
 		block.reset()
-
-func _on_line_edit_text_submitted(newText: String) -> void:
-	setText(newText)
-	if (!state):
-		revealBoard()
-		state = true
-	else:
-		resetBoard()
-		state = false
