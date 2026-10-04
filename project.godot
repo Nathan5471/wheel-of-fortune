@@ -13,7 +13,6 @@ config_version=5
 config/name="Wheel of Fortune"
 run/main_scene="uid://cv7x8yf0tofob"
 config/features=PackedStringArray("4.7", "GL Compatibility")
-config/icon="res://icon.svg"
 
 [display]
 

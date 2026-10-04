@@ -4,6 +4,24 @@
 [ext_resource type="Script" uid="uid://dyx0tc4kfqr0q" path="res://scripts/mainManager.gd" id="1_1bvp3"]
 [ext_resource type="PackedScene" uid="uid://qe26w12dhbv" path="res://wheel.tscn" id="2_h2yge"]
 [ext_resource type="PackedScene" uid="uid://d0h3kspwq1dxd" path="res://scoreCards.tscn" id="3_h2yge"]
+[ext_resource type="FontFile" uid="uid://dp6c2surh0ijj" path="res://assets/Helvetica Black Condensed.otf" id="5_lquwl"]
+[ext_resource type="Script" uid="uid://dwp055w6axofy" path="res://capLock.gd" id="6_7mycd"]
+
+[sub_resource type="FontVariation" id="FontVariation_7mycd"]
+base_font = ExtResource("5_lquwl")
+baseline_offset = 0.09
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lquwl"]
+bg_color = Color(0.078431375, 0.68235296, 0.36078432, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_272bh"]
+bg_color = Color(0.27058825, 0.68235296, 0.4627451, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7mycd"]
+bg_color = Color(0.27058825, 0.68235296, 0.4627451, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5vw27"]
+bg_color = Color(0.8509804, 0.8509804, 0.8509804, 1)
 
 [node name="Main" type="Node2D" unique_id=430717514]
 script = ExtResource("1_1bvp3")
@@ -23,3 +41,42 @@ scale = Vector2(3, 3)
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1154649383]
 offset = Vector2(-400, -600)
 zoom = Vector2(0.3, 0.3)
+
+[node name="Spin" type="Button" parent="." unique_id=1914378034]
+offset_left = 724.0
+offset_top = 579.0
+offset_right = 2165.0
+offset_bottom = 1036.0
+theme_override_colors/font_color = Color(0.8509804, 0.8509804, 0.8509804, 1)
+theme_override_fonts/font = SubResource("FontVariation_7mycd")
+theme_override_font_sizes/font_size = 486
+theme_override_styles/normal = SubResource("StyleBoxFlat_lquwl")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_272bh")
+theme_override_styles/hover = SubResource("StyleBoxFlat_7mycd")
+text = "SPIN"
+
+[node name="GuessField" type="LineEdit" parent="." unique_id=1821483134]
+offset_left = 251.0
+offset_top = 150.0
+offset_right = 1851.0
+offset_bottom = 450.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/caret_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5_lquwl")
+theme_override_font_sizes/font_size = 180
+theme_override_styles/normal = SubResource("StyleBoxFlat_5vw27")
+alignment = 1
+script = ExtResource("6_7mycd")
+
+[node name="Spin2" type="Button" parent="." unique_id=742252983]
+offset_left = 1909.0
+offset_top = 150.0
+offset_right = 2509.0
+offset_bottom = 450.0
+theme_override_colors/font_color = Color(0.8509804, 0.8509804, 0.8509804, 1)
+theme_override_fonts/font = SubResource("FontVariation_7mycd")
+theme_override_font_sizes/font_size = 150
+theme_override_styles/normal = SubResource("StyleBoxFlat_lquwl")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_272bh")
+theme_override_styles/hover = SubResource("StyleBoxFlat_7mycd")
+text = "GUESS"

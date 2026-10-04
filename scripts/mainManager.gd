@@ -4,6 +4,7 @@ var targetText: String = ""
 var currentCategory: String = ""
 var guessedLetters: Array[String] = []
 var currentTurn: int = 0
+var currentSpinValue: int = 0
 var playerNames: Array[String] = ["PLAYER 1", "PLAYER 2", "PLAYER 3"]
 var playerScores: Array[int] = [0, 0, 0]
 var winner: int = -1 # -1 means no current winner
