@@ -43,10 +43,10 @@ offset = Vector2(-400, -600)
 zoom = Vector2(0.3, 0.3)
 
 [node name="Spin" type="Button" parent="." unique_id=1914378034]
-offset_left = 724.0
-offset_top = 579.0
-offset_right = 2165.0
-offset_bottom = 1036.0
+offset_left = 676.0
+offset_top = 557.0
+offset_right = 2117.0
+offset_bottom = 1014.0
 theme_override_colors/font_color = Color(0.8509804, 0.8509804, 0.8509804, 1)
 theme_override_fonts/font = SubResource("FontVariation_7mycd")
 theme_override_font_sizes/font_size = 486
@@ -66,9 +66,10 @@ theme_override_fonts/font = ExtResource("5_lquwl")
 theme_override_font_sizes/font_size = 180
 theme_override_styles/normal = SubResource("StyleBoxFlat_5vw27")
 alignment = 1
+editable = false
 script = ExtResource("6_7mycd")
 
-[node name="Spin2" type="Button" parent="." unique_id=742252983]
+[node name="GuessButton" type="Button" parent="." unique_id=742252983]
 offset_left = 1909.0
 offset_top = 150.0
 offset_right = 2509.0
@@ -79,4 +80,8 @@ theme_override_font_sizes/font_size = 150
 theme_override_styles/normal = SubResource("StyleBoxFlat_lquwl")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_272bh")
 theme_override_styles/hover = SubResource("StyleBoxFlat_7mycd")
+disabled = true
 text = "GUESS"
+
+[connection signal="pressed" from="Spin" to="." method="_on_spin_pressed"]
+[connection signal="pressed" from="GuessButton" to="." method="_on_guess_button_pressed"]

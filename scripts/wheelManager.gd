@@ -2,7 +2,7 @@ extends Node2D
 
 const sliceCount: int = 24
 const degreesPerSlice: float = 360.0 / sliceCount
-const wheelValues: Array[String] = ["$1000", "$700", "$300", "$600", "$150", "$400", "$500", "Lose A Turn", "$300", "$400", "$700", "Bankrupt", "$300", "$900", "$150", "$500", "$650", "$300", "$800", "$300", "$450", "$350", "$300", "Bankrupt"]
+const wheelValues: Array[String] = ["$1000", "$700", "$300", "$600", "$150", "$400", "$500", "LOSE A TURN", "$300", "$400", "$700", "BANKRUPT", "$300", "$900", "$150", "$500", "$650", "$300", "$800", "$300", "$450", "$350", "$300", "BANKRUPT"]
 @onready var wheelSprite: Sprite2D = $WheelSprite
 var isSpinning: bool = false
 var currentAngle = 0
