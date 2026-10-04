@@ -65,7 +65,7 @@ func revealBoard() -> void:
 func addGuess(guess: String) -> void:
 	if (!(guess in revealedLetters)):
 		revealedLetters.append(guess)
-		revealBoard()
+		showGuessedBoard()
 
 func resetBoard() -> void:
 	for i in range(1,53):
