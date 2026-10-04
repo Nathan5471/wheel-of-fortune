@@ -1,5 +1,7 @@
 extends Node2D
 
+enum GuessState { NONE, CONSONANT, VOWEL, SOLVE }
+
 var targetText: String = ""
 var currentCategory: String = ""
 var guessedLetters: Array[String] = []
@@ -9,9 +11,7 @@ var playerNames: Array[String] = ["PLAYER 1", "PLAYER 2", "PLAYER 3"]
 var playerScores: Array[int] = [0, 0, 0]
 var winner: int = -1 # -1 means no current winner
 var inGame: bool = false
-var canOnlyGuessConsonant: bool = true
-var canOnlyGuessVowel: bool = false
-var canOnlySolve: bool = false
+var guessState: GuessState = GuessState.NONE
 @onready var board = $Board
 @onready var wheel = $Wheel
 @onready var scoreCards = $ScoreCards
@@ -68,13 +68,12 @@ func _on_spin_pressed() -> void:
 		setTurn((currentTurn + 1) if (currentTurn != 2) else 0)
 	else:
 		currentSpinValue = int(spinValue.replace("$", ""))
-		canOnlyGuessConsonant = true
-		canOnlyGuessVowel = false
+		guessState = GuessState.CONSONANT
 		spinButton.disabled = true
 		guessField.editable = true
 		guessButton.disabled = false
-
-func _on_guess_button_pressed() -> void:
+		
+func handleGuess() -> void:
 	var guessText = guessField.text
 	if (guessText.length() == 0):
 		return
@@ -82,12 +81,12 @@ func _on_guess_button_pressed() -> void:
 		var regex = RegEx.new()
 		regex.compile("[AEIOU]")
 		if (regex.search(guessText)):
-			if (playerScores[currentTurn] < 250 || canOnlyGuessConsonant || canOnlySolve):
+			if (playerScores[currentTurn] < 250 || guessState != GuessState.VOWEL):
 				guessField.text = ""
 				return
 			playerScores[currentTurn] -= 250
 		else:
-			if (canOnlyGuessVowel || canOnlySolve):
+			if (guessState != GuessState.CONSONANT):
 				guessField.text = ""
 				return
 		var isGuessCorrect = targetText.contains(guessText) && !(guessedLetters.has(guessText))
@@ -108,7 +107,7 @@ func _on_guess_button_pressed() -> void:
 		else:
 			setTurn((currentTurn + 1) if (currentTurn != 2) else 0)
 	else:
-		if (canOnlyGuessConsonant || canOnlyGuessVowel):
+		if (guessState != GuessState.SOLVE):
 			guessField.text = ""
 			return
 		var regex = RegEx.new()
@@ -119,9 +118,14 @@ func _on_guess_button_pressed() -> void:
 		else:
 			setTurn((currentTurn + 1) if (currentTurn != 2) else 0)
 
+func _on_guess_button_pressed() -> void:
+	handleGuess()
+	
+func _on_guess_field_text_submitted(new_text: String) -> void:
+	handleGuess()
+
 func _on_buy_vowel_pressed() -> void:
-	canOnlyGuessVowel = true
-	canOnlyGuessConsonant = false
+	guessState = GuessState.VOWEL
 	guessField.text = ""
 	guessField.editable = true
 	guessButton.disabled = false
@@ -130,9 +134,7 @@ func _on_buy_vowel_pressed() -> void:
 	spinButton.disabled = true
 
 func _on_solve_pressed() -> void:
-	canOnlySolve = true
-	canOnlyGuessConsonant = false
-	canOnlyGuessVowel = false
+	guessState = GuessState.SOLVE
 	guessField.text = ""
 	guessField.editable = true
 	guessButton.disabled = false

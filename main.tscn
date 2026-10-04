@@ -111,6 +111,7 @@ theme_override_styles/hover = SubResource("StyleBoxFlat_7mycd")
 text = "SOLVE"
 
 [connection signal="pressed" from="Spin" to="." method="_on_spin_pressed"]
+[connection signal="text_submitted" from="GuessField" to="." method="_on_guess_field_text_submitted"]
 [connection signal="pressed" from="GuessButton" to="." method="_on_guess_button_pressed"]
 [connection signal="pressed" from="BuyVowel" to="." method="_on_buy_vowel_pressed"]
 [connection signal="pressed" from="Solve" to="." method="_on_solve_pressed"]

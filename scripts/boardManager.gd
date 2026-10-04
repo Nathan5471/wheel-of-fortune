@@ -1,7 +1,6 @@
 extends Node2D
 
 var boardText: Array[String] = []
-const letters: Array[String] = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"]
 var revealedLetters: Array[String] = []
 
 func formatRow(row: String, intendedLength: int) -> Array[String]:
@@ -49,7 +48,9 @@ func showGuessedBoard() -> void:
 		var text = boardText[i-1]
 		if (text == ""):
 			continue
-		if (text in letters && !(text in revealedLetters)):
+		var regex = RegEx.new()
+		regex.compile("[A-Z]")
+		if (regex.search(text) && !(text in revealedLetters)):
 			text = ""
 		var block = get_node("Blocks/BoardBlock" + str(i))
 		block.showBlock(text)
