@@ -23,6 +23,13 @@ bg_color = Color(0.27058825, 0.68235296, 0.4627451, 1)
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5vw27"]
 bg_color = Color(0.8509804, 0.8509804, 0.8509804, 1)
 
+[sub_resource type="FontVariation" id="FontVariation_gqpgd"]
+base_font = ExtResource("5_lquwl")
+spacing_top = 24
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sik88"]
+bg_color = Color(0.007843138, 0.18431373, 0.96862745, 0.74509805)
+
 [node name="Main" type="Node2D" unique_id=430717514]
 script = ExtResource("1_1bvp3")
 
@@ -109,6 +116,18 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_lquwl")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_272bh")
 theme_override_styles/hover = SubResource("StyleBoxFlat_7mycd")
 text = "SOLVE"
+
+[node name="Category" type="Label" parent="." unique_id=240302299]
+offset_left = -2514.0
+offset_top = -285.0
+offset_right = -1016.0
+offset_bottom = -105.0
+theme_override_colors/font_color = Color(0.8509804, 0.8509804, 0.8509804, 1)
+theme_override_fonts/font = SubResource("FontVariation_gqpgd")
+theme_override_font_sizes/font_size = 164
+theme_override_styles/normal = SubResource("StyleBoxFlat_sik88")
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [connection signal="pressed" from="Spin" to="." method="_on_spin_pressed"]
 [connection signal="text_submitted" from="GuessField" to="." method="_on_guess_field_text_submitted"]

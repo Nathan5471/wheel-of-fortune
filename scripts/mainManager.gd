@@ -13,6 +13,7 @@ var winner: int = -1 # -1 means no current winner
 var inGame: bool = false
 var guessState: GuessState = GuessState.NONE
 @onready var board = $Board
+@onready var categoryLabel = $Category
 @onready var wheel = $Wheel
 @onready var scoreCards = $ScoreCards
 @onready var spinButton = $Spin
@@ -26,6 +27,7 @@ func setupGame() -> void: # I need to add input for names eventually (I'll have 
 		return
 	targetText = "SHREK IS LOVE SHREK IS LIFE" # I need to add some sort of generation for these two
 	currentCategory = "SHREK"
+	categoryLabel.text = currentCategory
 	guessedLetters = []
 	playerNames = ["PLAYER 1", "PLAYER 2", "PLAYER 3"]
 	playerScores = [0, 0, 0]
