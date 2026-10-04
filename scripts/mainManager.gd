@@ -30,7 +30,7 @@ func getRandomPhraseAndCategory() -> Array[String]:
 	var phrase = phraseData[category][randi() % phraseData[category].size()]
 	return [phrase, category]
 
-func setupGame() -> void: # I need to add input for names eventually (I'll have a starting screen where the players can enter their name)
+func setupGame(initialPlayerName, initialTurn) -> void: # I need to add input for names eventually (I'll have a starting screen where the players can enter their name)
 	if (inGame):
 		return
 	var generatedPhraseAndCategory = getRandomPhraseAndCategory()
@@ -41,14 +41,14 @@ func setupGame() -> void: # I need to add input for names eventually (I'll have 
 	currentCategory = generatedPhraseAndCategory[1]
 	categoryLabel.text = currentCategory
 	guessedLetters = []
-	playerNames = ["PLAYER 1", "PLAYER 2", "PLAYER 3"]
+	playerNames = initialPlayerName
 	playerScores = [0, 0, 0]
 	winner = -1
 	inGame = true
 	for i in range(3):
 		scoreCards.updatePlayerName(i, playerNames[i])
 		scoreCards.updatePlayerScore(i, playerScores[i])
-	setTurn(0)
+	setTurn(initialTurn)
 		
 func setTurn(turn: int) -> void:
 	currentTurn = turn
@@ -153,5 +153,5 @@ func _on_solve_pressed() -> void:
 	solveButton.disabled = true
 	spinButton.disabled = true
 
-func _process(delta: float):
-	setupGame()
+func _ready():
+	setupGame(GlobalManager.playerNames, GlobalManager.currentStartingPlayer)

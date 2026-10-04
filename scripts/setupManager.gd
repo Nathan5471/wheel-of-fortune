@@ -8,7 +8,7 @@ var player3Name: String = ""
 @onready var player3NameInput = $Player3Name
 @onready var playButton = $Play
 
-func changeName(newName: String, player: int):
+func changeName(newName: String, player: int) -> void:
 	if (player == 1):
 		player1Name = newName
 	elif (player == 2):
@@ -21,4 +21,4 @@ func changeName(newName: String, player: int):
 		playButton.disabled = true
 
 func _on_play_pressed() -> void:
-	pass # Replace with function body.
+	GlobalManager.startGame(player1Name, player2Name, player3Name)

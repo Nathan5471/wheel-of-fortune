@@ -14,6 +14,10 @@ config/name="Wheel of Fortune"
 run/main_scene="uid://d14cbex47qwet"
 config/features=PackedStringArray("4.7", "GL Compatibility")
 
+[autoload]
+
+GlobalManager="*uid://bjywhicu32jbt"
+
 [display]
 
 window/size/viewport_width=1920
