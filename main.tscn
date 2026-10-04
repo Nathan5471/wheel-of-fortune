@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://qe26w12dhbv" path="res://wheel.tscn" id="2_h2yge"]
 [ext_resource type="PackedScene" uid="uid://d0h3kspwq1dxd" path="res://scoreCards.tscn" id="3_h2yge"]
 [ext_resource type="FontFile" uid="uid://dp6c2surh0ijj" path="res://assets/Helvetica Black Condensed.otf" id="5_lquwl"]
-[ext_resource type="Script" uid="uid://dwp055w6axofy" path="res://capLock.gd" id="6_7mycd"]
+[ext_resource type="Script" uid="uid://dwp055w6axofy" path="res://scripts/capLock.gd" id="6_7mycd"]
 
 [sub_resource type="FontVariation" id="FontVariation_7mycd"]
 base_font = ExtResource("5_lquwl")

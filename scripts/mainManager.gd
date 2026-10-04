@@ -1,6 +1,7 @@
 extends Node2D
 
 enum GuessState { NONE, CONSONANT, VOWEL, SOLVE }
+const phraseJson = "res://phrases.json"
 
 var targetText: String = ""
 var currentCategory: String = ""
@@ -22,20 +23,28 @@ var guessState: GuessState = GuessState.NONE
 @onready var buyVowelButton = $BuyVowel
 @onready var solveButton = $Solve
 
+func getRandomPhraseAndCategory() -> Array[String]:
+	var phraseText = FileAccess.get_file_as_string(phraseJson)
+	var phraseData = JSON.parse_string(phraseText)
+	var category = phraseData["categories"][randi() % phraseData["categories"].size()]
+	var phrase = phraseData[category][randi() % phraseData[category].size()]
+	return [phrase, category]
+
 func setupGame() -> void: # I need to add input for names eventually (I'll have a starting screen where the players can enter their name)
 	if (inGame):
 		return
-	targetText = "SHREK IS LOVE SHREK IS LIFE" # I need to add some sort of generation for these two
-	currentCategory = "SHREK"
+	var generatedPhraseAndCategory = getRandomPhraseAndCategory()
+	targetText = generatedPhraseAndCategory[0]
+	board.setText(targetText)
+	board.resetBoard()
+	board.showGuessedBoard()
+	currentCategory = generatedPhraseAndCategory[1]
 	categoryLabel.text = currentCategory
 	guessedLetters = []
 	playerNames = ["PLAYER 1", "PLAYER 2", "PLAYER 3"]
 	playerScores = [0, 0, 0]
 	winner = -1
 	inGame = true
-	board.setText(targetText)
-	board.resetBoard()
-	board.showGuessedBoard()
 	for i in range(3):
 		scoreCards.updatePlayerName(i, playerNames[i])
 		scoreCards.updatePlayerScore(i, playerScores[i])

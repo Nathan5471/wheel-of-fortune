@@ -1,0 +1,142 @@
+[gd_scene format=3 uid="uid://d14cbex47qwet"]
+
+[ext_resource type="FontFile" uid="uid://dp6c2surh0ijj" path="res://assets/Helvetica Black Condensed.otf" id="1_yujpc"]
+[ext_resource type="Texture2D" uid="uid://ccy3f5vxrb47v" path="res://assets/wheel-of-fortune-logo.png" id="2_4uiav"]
+[ext_resource type="Script" uid="uid://dwp055w6axofy" path="res://scripts/capLock.gd" id="3_mpvgy"]
+
+[sub_resource type="FontVariation" id="FontVariation_mpvgy"]
+base_font = ExtResource("1_yujpc")
+baseline_offset = 0.09
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_11tsp"]
+bg_color = Color(0.078431375, 0.68235296, 0.36078432, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mvs7q"]
+bg_color = Color(0.27058825, 0.68235296, 0.4627451, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yar3t"]
+bg_color = Color(0.27058825, 0.68235296, 0.4627451, 1)
+
+[node name="Setup" type="Node2D" unique_id=496136774]
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=648512407]
+zoom = Vector2(2, 2)
+
+[node name="Label" type="Label" parent="." unique_id=1497181750]
+offset_left = -480.0
+offset_top = -270.0
+offset_right = 480.0
+theme_override_fonts/font = ExtResource("1_yujpc")
+theme_override_font_sizes/font_size = 124
+text = "WHEEL OF
+FORTUNE"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Logo1" type="Sprite2D" parent="." unique_id=358204523]
+position = Vector2(-364.00003, -163.00002)
+scale = Vector2(0.1268657, 0.1268657)
+texture = ExtResource("2_4uiav")
+
+[node name="Logo2" type="Sprite2D" parent="." unique_id=2018530897]
+position = Vector2(361.00003, -165.00002)
+scale = Vector2(0.1268657, 0.1268657)
+texture = ExtResource("2_4uiav")
+
+[node name="Player1Box" type="ColorRect" parent="." unique_id=1842328286]
+offset_left = -400.0
+offset_top = 19.0
+offset_right = -150.0
+offset_bottom = 144.0
+color = Color(0.80784315, 0.1254902, 0.16078432, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="Player1Label" type="Label" parent="." unique_id=1036368490]
+offset_left = -396.0
+offset_top = 83.0
+offset_right = -146.0
+offset_bottom = 144.0
+theme_override_fonts/font = ExtResource("1_yujpc")
+theme_override_font_sizes/font_size = 64
+text = "PLAYER 1"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Player1Name" type="LineEdit" parent="." unique_id=1827427049]
+offset_left = -392.0
+offset_top = 29.0
+offset_right = -157.0
+offset_bottom = 64.0
+theme_override_fonts/font = ExtResource("1_yujpc")
+theme_override_font_sizes/font_size = 24
+script = ExtResource("3_mpvgy")
+
+[node name="Player2Box" type="ColorRect" parent="." unique_id=1030245866]
+offset_left = -125.0
+offset_top = 19.0
+offset_right = 125.0
+offset_bottom = 144.0
+color = Color(0.9764706, 0.84313726, 0.10980392, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="Player2Label" type="Label" parent="." unique_id=1383785626]
+offset_left = -125.0
+offset_top = 83.0
+offset_right = 125.0
+offset_bottom = 144.0
+theme_override_fonts/font = ExtResource("1_yujpc")
+theme_override_font_sizes/font_size = 64
+text = "PLAYER 2"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Player2Name" type="LineEdit" parent="." unique_id=349514120]
+offset_left = -118.0
+offset_top = 29.0
+offset_right = 117.0
+offset_bottom = 64.0
+theme_override_fonts/font = ExtResource("1_yujpc")
+theme_override_font_sizes/font_size = 24
+script = ExtResource("3_mpvgy")
+
+[node name="Player3Box" type="ColorRect" parent="." unique_id=1740612833]
+offset_left = 150.0
+offset_top = 19.0
+offset_right = 400.0
+offset_bottom = 144.0
+color = Color(0, 0.2784314, 0.67058825, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="Player3Label" type="Label" parent="." unique_id=2081424230]
+offset_left = 150.0
+offset_top = 84.0
+offset_right = 400.0
+offset_bottom = 145.0
+theme_override_fonts/font = ExtResource("1_yujpc")
+theme_override_font_sizes/font_size = 64
+text = "PLAYER 3"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Player3Name" type="LineEdit" parent="." unique_id=1146329279]
+offset_left = 159.0
+offset_top = 29.0
+offset_right = 394.0
+offset_bottom = 64.0
+theme_override_fonts/font = ExtResource("1_yujpc")
+theme_override_font_sizes/font_size = 24
+script = ExtResource("3_mpvgy")
+
+[node name="Spin" type="Button" parent="." unique_id=1340613841]
+offset_left = -141.0
+offset_top = 159.0
+offset_right = 141.0
+offset_bottom = 253.0
+theme_override_colors/font_color = Color(0.8509804, 0.8509804, 0.8509804, 1)
+theme_override_fonts/font = SubResource("FontVariation_mpvgy")
+theme_override_font_sizes/font_size = 100
+theme_override_styles/normal = SubResource("StyleBoxFlat_11tsp")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_mvs7q")
+theme_override_styles/hover = SubResource("StyleBoxFlat_yar3t")
+disabled = true
+text = "PLAY"
