@@ -1,8 +1,9 @@
 [gd_scene format=3 uid="uid://d14cbex47qwet"]
 
+[ext_resource type="Script" uid="uid://d2f5yu3oxm2sv" path="res://scripts/setupManager.gd" id="1_11tsp"]
 [ext_resource type="FontFile" uid="uid://dp6c2surh0ijj" path="res://assets/Helvetica Black Condensed.otf" id="1_yujpc"]
 [ext_resource type="Texture2D" uid="uid://ccy3f5vxrb47v" path="res://assets/wheel-of-fortune-logo.png" id="2_4uiav"]
-[ext_resource type="Script" uid="uid://dwp055w6axofy" path="res://scripts/capLock.gd" id="3_mpvgy"]
+[ext_resource type="Script" uid="uid://gwot4351d8m6" path="res://scripts/capLock-name.gd" id="4_11tsp"]
 
 [sub_resource type="FontVariation" id="FontVariation_mpvgy"]
 base_font = ExtResource("1_yujpc")
@@ -18,6 +19,7 @@ bg_color = Color(0.27058825, 0.68235296, 0.4627451, 1)
 bg_color = Color(0.27058825, 0.68235296, 0.4627451, 1)
 
 [node name="Setup" type="Node2D" unique_id=496136774]
+script = ExtResource("1_11tsp")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=648512407]
 zoom = Vector2(2, 2)
@@ -69,7 +71,8 @@ offset_right = -157.0
 offset_bottom = 64.0
 theme_override_fonts/font = ExtResource("1_yujpc")
 theme_override_font_sizes/font_size = 24
-script = ExtResource("3_mpvgy")
+script = ExtResource("4_11tsp")
+metadata/player = 1
 
 [node name="Player2Box" type="ColorRect" parent="." unique_id=1030245866]
 offset_left = -125.0
@@ -97,7 +100,8 @@ offset_right = 117.0
 offset_bottom = 64.0
 theme_override_fonts/font = ExtResource("1_yujpc")
 theme_override_font_sizes/font_size = 24
-script = ExtResource("3_mpvgy")
+script = ExtResource("4_11tsp")
+metadata/player = 2
 
 [node name="Player3Box" type="ColorRect" parent="." unique_id=1740612833]
 offset_left = 150.0
@@ -125,9 +129,10 @@ offset_right = 394.0
 offset_bottom = 64.0
 theme_override_fonts/font = ExtResource("1_yujpc")
 theme_override_font_sizes/font_size = 24
-script = ExtResource("3_mpvgy")
+script = ExtResource("4_11tsp")
+metadata/player = 3
 
-[node name="Spin" type="Button" parent="." unique_id=1340613841]
+[node name="Play" type="Button" parent="." unique_id=1340613841]
 offset_left = -141.0
 offset_top = 159.0
 offset_right = 141.0
@@ -140,3 +145,5 @@ theme_override_styles/pressed = SubResource("StyleBoxFlat_mvs7q")
 theme_override_styles/hover = SubResource("StyleBoxFlat_yar3t")
 disabled = true
 text = "PLAY"
+
+[connection signal="pressed" from="Play" to="." method="_on_play_pressed"]
