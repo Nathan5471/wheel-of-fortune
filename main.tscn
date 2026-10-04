@@ -1,22 +1,24 @@
 [gd_scene format=3 uid="uid://cv7x8yf0tofob"]
 
 [ext_resource type="PackedScene" uid="uid://df11e00x4tqsy" path="res://board.tscn" id="1_0xm2m"]
+[ext_resource type="Script" uid="uid://dyx0tc4kfqr0q" path="res://scripts/mainManager.gd" id="1_1bvp3"]
 [ext_resource type="PackedScene" uid="uid://qe26w12dhbv" path="res://wheel.tscn" id="2_h2yge"]
 [ext_resource type="PackedScene" uid="uid://d0h3kspwq1dxd" path="res://scoreCards.tscn" id="3_h2yge"]
 
 [node name="Main" type="Node2D" unique_id=430717514]
+script = ExtResource("1_1bvp3")
 
 [node name="Board" parent="." unique_id=1459069373 instance=ExtResource("1_0xm2m")]
-position = Vector2(-1566.0001, -1025)
-scale = Vector2(1.5, 1.5)
+position = Vector2(-1762, -1152)
+scale = Vector2(2, 2)
 
 [node name="Wheel" parent="." unique_id=167082871 instance=ExtResource("2_h2yge")]
-position = Vector2(953, -1025)
+position = Vector2(1442, -1117)
 scale = Vector2(1.5, 1.5)
 
 [node name="ScoreCards" parent="." unique_id=371776815 instance=ExtResource("3_h2yge")]
-position = Vector2(-1526, 469.00003)
-scale = Vector2(2.5, 2.5)
+position = Vector2(-1762.0001, 46)
+scale = Vector2(3, 3)
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1154649383]
 offset = Vector2(-400, -600)

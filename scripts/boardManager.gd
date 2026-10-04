@@ -49,14 +49,16 @@ func showGuessedBoard() -> void:
 		var text = boardText[i-1]
 		if (text == ""):
 			continue
+		if (text in letters && !(text in revealedLetters)):
+			text = ""
+		var block = get_node("Blocks/BoardBlock" + str(i))
+		block.showBlock(text)
 
 func revealBoard() -> void:
 	for i in range(1,53):
 		var text = boardText[i-1]
 		if (text == ""):
 			continue
-		if (text in letters && !(text in revealedLetters)):
-			text == ""
 		var block = get_node("Blocks/BoardBlock" + str(i))
 		block.showBlock(text)
 		
