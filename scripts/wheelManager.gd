@@ -23,4 +23,5 @@ func spinWheel() -> String:
 	
 	var landedAngle = wrapf(wheelSprite.rotation_degrees, 0.0, 360.0)
 	var landedSliceIndex = floor((landedAngle+5.5) / degreesPerSlice)
+	isSpinning = false
 	return wheelValues[landedSliceIndex]

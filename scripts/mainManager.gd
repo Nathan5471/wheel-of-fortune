@@ -57,7 +57,23 @@ func _on_spin_pressed() -> void:
 		guessButton.disabled = false
 
 func _on_guess_button_pressed() -> void:
-	pass # Replace with function body.
+	var guessText = guessField.text
+	if (guessText.length() == 1):
+		var isGuessCorrect = targetText.contains(guessText) && !(guessedLetters.has(guessText))
+		if (isGuessCorrect):
+			var regex = RegEx.new()
+			regex.compile("[AEIOU]")
+			if (regex.search(guessText)):
+				playerScores[currentTurn] -= 250
+			else:
+				playerScores[currentTurn] += currentSpinValue * targetText.count(guessText)
+			scoreCards.updatePlayerScore(currentTurn, playerScores[currentTurn])
+			board.addGuess(guessText)
+			guessField.text = ""
+			spinButton.disabled = false
+		else:
+			setTurn((currentTurn + 1) if (currentTurn != 2) else 0)
+			
 
 func _process(delta: float):
 	setupGame()
