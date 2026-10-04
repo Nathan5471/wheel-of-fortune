@@ -1,0 +1,179 @@
+[gd_scene format=3 uid="uid://b1in8scxcyhwy"]
+
+[ext_resource type="Script" uid="uid://cn230ac7xm31q" path="res://scripts/tossupManager.gd" id="1_8i74f"]
+[ext_resource type="PackedScene" uid="uid://df11e00x4tqsy" path="res://board.tscn" id="1_qmol6"]
+[ext_resource type="FontFile" uid="uid://dp6c2surh0ijj" path="res://assets/Helvetica Black Condensed.otf" id="2_cehu2"]
+[ext_resource type="Script" uid="uid://dwp055w6axofy" path="res://scripts/capLock.gd" id="3_0b2p8"]
+
+[sub_resource type="FontVariation" id="FontVariation_0b2p8"]
+base_font = ExtResource("2_cehu2")
+spacing_top = 24
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8i74f"]
+bg_color = Color(0.007843138, 0.18431373, 0.96862745, 0.74509805)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_menpg"]
+bg_color = Color(0.80784315, 0.1254902, 0.16078432, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tfgf5"]
+bg_color = Color(0.9254902, 0.17254902, 0.20392157, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_meeqs"]
+bg_color = Color(0.9268935, 0.17411008, 0.20313969, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jw252"]
+bg_color = Color(0.9764706, 0.84313726, 0.10980392, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0b2p8"]
+bg_color = Color(0.9764706, 0.84313726, 0.28627452, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cehu2"]
+bg_color = Color(0.9764706, 0.84313726, 0.28627452, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sik88"]
+bg_color = Color(0, 0.2784314, 0.67058825, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8cv4g"]
+bg_color = Color(0, 0.3372549, 0.8, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gqxqy"]
+bg_color = Color(0, 0.3372549, 0.8, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8g0vi"]
+bg_color = Color(0.8509804, 0.8509804, 0.8509804, 1)
+
+[sub_resource type="FontVariation" id="FontVariation_jydpy"]
+base_font = ExtResource("2_cehu2")
+baseline_offset = 0.09
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8acpx"]
+bg_color = Color(0.078431375, 0.68235296, 0.36078432, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0remk"]
+bg_color = Color(0.27058825, 0.68235296, 0.4627451, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_awqno"]
+bg_color = Color(0.27058825, 0.68235296, 0.4627451, 1)
+
+[node name="Tossup" type="Node2D" unique_id=175453933]
+script = ExtResource("1_8i74f")
+
+[node name="Board" parent="." unique_id=1459069373 instance=ExtResource("1_qmol6")]
+position = Vector2(0, -657.00006)
+scale = Vector2(2.75, 2.75)
+
+[node name="Category" type="Label" parent="." unique_id=1859698088]
+offset_left = -1043.0
+offset_top = 487.0
+offset_right = 1028.0
+offset_bottom = 724.0
+theme_override_colors/font_color = Color(0.8509804, 0.8509804, 0.8509804, 1)
+theme_override_fonts/font = SubResource("FontVariation_0b2p8")
+theme_override_font_sizes/font_size = 164
+theme_override_styles/normal = SubResource("StyleBoxFlat_8i74f")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1096831308]
+zoom = Vector2(0.3, 0.3)
+
+[node name="Player1" type="Button" parent="." unique_id=1121299573]
+offset_left = -2926.0
+offset_top = 938.0
+offset_right = -1826.0
+offset_bottom = 1488.0
+theme_override_fonts/font = ExtResource("2_cehu2")
+theme_override_font_sizes/font_size = 224
+theme_override_styles/normal = SubResource("StyleBoxFlat_menpg")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_tfgf5")
+theme_override_styles/hover = SubResource("StyleBoxFlat_meeqs")
+text = "PLAYER 1"
+
+[node name="Player1Outline" type="ReferenceRect" parent="Player1" unique_id=1510810017]
+visible = false
+layout_mode = 0
+offset_left = -17.0
+offset_top = -17.0
+offset_right = 1116.0
+offset_bottom = 563.0
+border_color = Color(1, 0.03137255, 0, 1)
+border_width = 35.0
+editor_only = false
+
+[node name="Player2" type="Button" parent="." unique_id=1788830781]
+offset_left = -1718.0
+offset_top = 938.0
+offset_right = -618.0
+offset_bottom = 1488.0
+theme_override_fonts/font = ExtResource("2_cehu2")
+theme_override_font_sizes/font_size = 224
+theme_override_styles/normal = SubResource("StyleBoxFlat_jw252")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_0b2p8")
+theme_override_styles/hover = SubResource("StyleBoxFlat_cehu2")
+text = "PLAYER 2"
+
+[node name="Player2Outline" type="ReferenceRect" parent="Player2" unique_id=1031990778]
+visible = false
+layout_mode = 0
+offset_left = -17.0
+offset_top = -17.0
+offset_right = 1112.0
+offset_bottom = 556.0
+border_color = Color(0.9647059, 0.92156863, 0.38039216, 1)
+border_width = 35.0
+editor_only = false
+
+[node name="Player3" type="Button" parent="." unique_id=1115468130]
+offset_left = -502.0
+offset_top = 938.0
+offset_right = 598.0
+offset_bottom = 1488.0
+theme_override_fonts/font = ExtResource("2_cehu2")
+theme_override_font_sizes/font_size = 224
+theme_override_styles/normal = SubResource("StyleBoxFlat_sik88")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_8cv4g")
+theme_override_styles/hover = SubResource("StyleBoxFlat_gqxqy")
+text = "PLAYER 3"
+
+[node name="Player3Outline" type="ReferenceRect" parent="Player3" unique_id=172460149]
+visible = false
+layout_mode = 0
+offset_left = -17.0
+offset_top = -17.0
+offset_right = 1108.0
+offset_bottom = 564.0
+border_color = Color(0, 0.58431375, 0.99215686, 1)
+border_width = 35.0
+editor_only = false
+
+[node name="GuessField" type="LineEdit" parent="." unique_id=42651131]
+offset_left = 715.0
+offset_top = 1046.0
+offset_right = 2315.0
+offset_bottom = 1346.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/caret_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_cehu2")
+theme_override_font_sizes/font_size = 180
+theme_override_styles/normal = SubResource("StyleBoxFlat_8g0vi")
+alignment = 1
+editable = false
+script = ExtResource("3_0b2p8")
+
+[node name="GuessButton" type="Button" parent="." unique_id=568305405]
+offset_left = 2373.0
+offset_top = 1046.0
+offset_right = 2973.0
+offset_bottom = 1346.0
+theme_override_colors/font_color = Color(0.8509804, 0.8509804, 0.8509804, 1)
+theme_override_fonts/font = SubResource("FontVariation_jydpy")
+theme_override_font_sizes/font_size = 150
+theme_override_styles/normal = SubResource("StyleBoxFlat_8acpx")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_0remk")
+theme_override_styles/hover = SubResource("StyleBoxFlat_awqno")
+disabled = true
+text = "GUESS"
+
+[node name="Timer" type="Timer" parent="." unique_id=757714414]
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
