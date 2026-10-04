@@ -68,6 +68,7 @@ func addGuess(guess: String) -> void:
 		showGuessedBoard()
 
 func resetBoard() -> void:
+	revealedLetters = []
 	for i in range(1,53):
 		var block = get_node("Blocks/BoardBlock" + str(i))
 		block.reset()
