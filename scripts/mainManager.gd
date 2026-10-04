@@ -9,12 +9,15 @@ var playerNames: Array[String] = ["PLAYER 1", "PLAYER 2", "PLAYER 3"]
 var playerScores: Array[int] = [0, 0, 0]
 var winner: int = -1 # -1 means no current winner
 var inGame: bool = false
+var canOnlyGuessConsonant: bool = true
+var canOnlyGuessVowel: bool = false
 @onready var board = $Board
 @onready var wheel = $Wheel
 @onready var scoreCards = $ScoreCards
 @onready var spinButton = $Spin
 @onready var guessField = $GuessField
 @onready var guessButton = $GuessButton
+@onready var buyVowelButton = $BuyVowel
 
 func setupGame() -> void: # I need to add input for names eventually (I'll have a starting screen where the players can enter their name)
 	if (inGame):
@@ -41,6 +44,13 @@ func setTurn(turn: int) -> void:
 	guessField.editable = false
 	guessField.text = ""
 	guessButton.disabled = true
+	if (playerScores[turn] >= 250):
+		buyVowelButton.disabled = false
+	else:
+		buyVowelButton.disabled = true
+	
+func handleWin() -> void:
+	pass
 
 func _on_spin_pressed() -> void:
 	var spinValue = await wheel.spinWheel() as String
@@ -52,28 +62,64 @@ func _on_spin_pressed() -> void:
 		setTurn((currentTurn + 1) if (currentTurn != 2) else 0)
 	else:
 		currentSpinValue = int(spinValue.replace("$", ""))
+		canOnlyGuessConsonant = true
+		canOnlyGuessVowel = false
 		spinButton.disabled = true
 		guessField.editable = true
 		guessButton.disabled = false
+		buyVowelButton.disabled = true
 
 func _on_guess_button_pressed() -> void:
 	var guessText = guessField.text
+	if (guessText.length() == 0):
+		return
 	if (guessText.length() == 1):
+		var regex = RegEx.new()
+		regex.compile("[AEIOU]")
+		if (regex.search(guessText)):
+			if (playerScores[currentTurn] < 250 || canOnlyGuessConsonant):
+				guessField.text = ""
+				return
+			playerScores[currentTurn] -= 250
+		else:
+			if (canOnlyGuessVowel):
+				guessField.text = ""
+				return
 		var isGuessCorrect = targetText.contains(guessText) && !(guessedLetters.has(guessText))
 		if (isGuessCorrect):
-			var regex = RegEx.new()
-			regex.compile("[AEIOU]")
-			if (regex.search(guessText)):
-				playerScores[currentTurn] -= 250
-			else:
+			if (!regex.search(guessText)):
 				playerScores[currentTurn] += currentSpinValue * targetText.count(guessText)
 			scoreCards.updatePlayerScore(currentTurn, playerScores[currentTurn])
 			board.addGuess(guessText)
 			guessField.text = ""
 			spinButton.disabled = false
+			guessField.editable = false
+			guessButton.disabled = true
+			if (playerScores[currentTurn] >= 250):
+				buyVowelButton.disabled = false
+			else:
+				buyVowelButton.disabled = true
 		else:
 			setTurn((currentTurn + 1) if (currentTurn != 2) else 0)
-			
+	else:
+		if (canOnlyGuessConsonant):
+			guessField.text = ""
+			return
+		var regex = RegEx.new()
+		regex.compile("[^A-Z]")
+		var correctText = regex.sub(targetText, "", true)
+		if (guessText == correctText):
+			handleWin()
+		else:
+			setTurn((currentTurn + 1) if (currentTurn != 2) else 0)
+
+func _on_buy_vowel_pressed() -> void:
+	canOnlyGuessVowel = true
+	canOnlyGuessConsonant = false
+	guessField.text = ""
+	guessField.editable = true
+	guessButton.disabled = false
+	buyVowelButton.disabled = true
 
 func _process(delta: float):
 	setupGame()
