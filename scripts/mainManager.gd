@@ -19,6 +19,7 @@ func setupGame() -> void: # I need to add input for names eventually (I'll have 
 	currentCategory = "SHREK"
 	guessedLetters = []
 	currentTurn = 0
+	scoreCards.setTurn(currentTurn)
 	playerNames = ["PLAYER 1", "PLAYER 2", "PLAYER 3"]
 	playerScores = [0, 0, 0]
 	winner = -1
