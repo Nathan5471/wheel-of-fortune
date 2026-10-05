@@ -5,7 +5,7 @@ const phraseJson = "res://phrases.json"
 var guessedLetters: Array[String] = ["R", "S", "T", "L", "N", "E"]
 var currentGuess: int = 0
 var targetText: String = ""
-var categorty: String = ""
+var category: String = ""
 var won: bool = false
 @onready var board = $Board
 @onready var categoryLabel = $Category
@@ -15,22 +15,20 @@ var won: bool = false
 @onready var guessButton = $GuessButton
 @onready var timer = $Timer
 
-func getRandomPhraseAndCategory() -> Array[String]:
+func getRandomPhrase() -> String:
 	var phraseText = FileAccess.get_file_as_string(phraseJson)
 	var phraseData = JSON.parse_string(phraseText)
-	var category = phraseData["categories"][randi() % phraseData["categories"].size()]
 	var phrase = phraseData[category][randi() % phraseData[category].size()]
-	return [phrase, category]
+	return phrase
 
 func setup() -> void:
-	var phraseData = getRandomPhraseAndCategory()
-	targetText = phraseData[0]
+	category = GlobalManager.bonusRoundCategory
+	categoryLabel.text = category
+	targetText = getRandomPhrase()
 	board.setText(targetText)
 	board.resetBoard()
 	for letter in guessedLetters:
 		board.addGuess(letter)
-	categorty = phraseData[1]
-	categoryLabel.text = categorty
 	
 func handleGuess(guess: String) -> void:
 	if currentGuess < 4:

@@ -1,0 +1,63 @@
+[gd_scene format=3 uid="uid://d2ukkg1nwdtdy"]
+
+[ext_resource type="FontFile" uid="uid://dp6c2surh0ijj" path="res://assets/Helvetica Black Condensed.otf" id="1_27s68"]
+[ext_resource type="Script" uid="uid://b07phoofytg54" path="res://summaryManager.gd" id="1_ftif1"]
+[ext_resource type="PackedScene" uid="uid://d0h3kspwq1dxd" path="res://extraScenes/scoreCards.tscn" id="2_ftif1"]
+
+[sub_resource type="FontVariation" id="FontVariation_27s68"]
+base_font = ExtResource("1_27s68")
+baseline_offset = 0.09
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ftif1"]
+bg_color = Color(0.078431375, 0.68235296, 0.36078432, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_eja8u"]
+bg_color = Color(0.27058825, 0.68235296, 0.4627451, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rc4it"]
+bg_color = Color(0.27058825, 0.68235296, 0.4627451, 1)
+
+[node name="Summary" type="Node2D" unique_id=571269774]
+script = ExtResource("1_ftif1")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=214335499]
+
+[node name="Background" type="ColorRect" parent="." unique_id=1512245746]
+offset_left = -574.0
+offset_top = -480.0
+offset_right = 575.76843
+offset_bottom = -46.0
+color = Color(0.078431375, 0.68235296, 0.36078432, 1)
+
+[node name="Label" type="Label" parent="." unique_id=152064974]
+offset_left = -574.0
+offset_top = -480.0
+offset_right = 576.0
+offset_bottom = -44.0
+theme_override_fonts/font = ExtResource("1_27s68")
+theme_override_font_sizes/font_size = 82
+text = "CONGRATS {NAME} ON EARNING
+$50,000 IN THE BONUS ROUND!!!
+
+HERE ARE THE TOTALS:"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ScoreCards" parent="." unique_id=371776815 instance=ExtResource("2_ftif1")]
+position = Vector2(-3.0517578e-05, 2.3841858e-07)
+scale = Vector2(1.6, 1.6)
+
+[node name="PlayAgainButton" type="Button" parent="." unique_id=2116235623]
+offset_left = -299.0
+offset_top = 367.0
+offset_right = 301.0
+offset_bottom = 456.0
+theme_override_colors/font_color = Color(0.8509804, 0.8509804, 0.8509804, 1)
+theme_override_fonts/font = SubResource("FontVariation_27s68")
+theme_override_font_sizes/font_size = 64
+theme_override_styles/normal = SubResource("StyleBoxFlat_ftif1")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_eja8u")
+theme_override_styles/hover = SubResource("StyleBoxFlat_rc4it")
+text = "PLAY AGAIN"
+
+[connection signal="pressed" from="PlayAgainButton" to="." method="_on_play_again_button_pressed"]
