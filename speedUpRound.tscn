@@ -1,0 +1,119 @@
+[gd_scene format=3 uid="uid://gr5ki758mwxw"]
+
+[ext_resource type="PackedScene" uid="uid://df11e00x4tqsy" path="res://board.tscn" id="1_pr8wk"]
+[ext_resource type="PackedScene" uid="uid://qe26w12dhbv" path="res://wheel.tscn" id="2_lfyjp"]
+[ext_resource type="PackedScene" uid="uid://d0h3kspwq1dxd" path="res://scoreCards.tscn" id="3_11acj"]
+[ext_resource type="FontFile" uid="uid://dp6c2surh0ijj" path="res://assets/Helvetica Black Condensed.otf" id="4_gku2r"]
+[ext_resource type="Script" uid="uid://dwp055w6axofy" path="res://scripts/capLock.gd" id="5_hpsi5"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kuhhl"]
+bg_color = Color(0.8509804, 0.8509804, 0.8509804, 1)
+
+[sub_resource type="FontVariation" id="FontVariation_cnqko"]
+base_font = ExtResource("4_gku2r")
+baseline_offset = 0.09
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_t6sjl"]
+bg_color = Color(0.078431375, 0.68235296, 0.36078432, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cvuld"]
+bg_color = Color(0.27058825, 0.68235296, 0.4627451, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xw8a5"]
+bg_color = Color(0.27058825, 0.68235296, 0.4627451, 1)
+
+[sub_resource type="FontVariation" id="FontVariation_joybx"]
+base_font = ExtResource("4_gku2r")
+spacing_top = 24
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2fkg1"]
+bg_color = Color(0.007843138, 0.18431373, 0.96862745, 0.74509805)
+
+[sub_resource type="FontVariation" id="FontVariation_27ody"]
+base_font = ExtResource("4_gku2r")
+spacing_top = 24
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_neceh"]
+bg_color = Color(0.27058825, 0.68235296, 0.4627451, 1)
+
+[node name="SpeedUpRound" type="Node2D" unique_id=1789908763]
+
+[node name="Board" parent="." unique_id=1459069373 instance=ExtResource("1_pr8wk")]
+position = Vector2(-1762, -1152)
+scale = Vector2(2, 2)
+
+[node name="Wheel" parent="." unique_id=167082871 instance=ExtResource("2_lfyjp")]
+position = Vector2(1442, -1117)
+scale = Vector2(1.5, 1.5)
+
+[node name="ScoreCards" parent="." unique_id=371776815 instance=ExtResource("3_11acj")]
+position = Vector2(-1762.0001, 46)
+scale = Vector2(3, 3)
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1818399760]
+offset = Vector2(-400, -600)
+zoom = Vector2(0.3, 0.3)
+
+[node name="GuessField" type="LineEdit" parent="." unique_id=1097370528]
+offset_left = 251.0
+offset_top = 638.0
+offset_right = 1851.0
+offset_bottom = 938.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/caret_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("4_gku2r")
+theme_override_font_sizes/font_size = 180
+theme_override_styles/normal = SubResource("StyleBoxFlat_kuhhl")
+alignment = 1
+script = ExtResource("5_hpsi5")
+
+[node name="GuessButton" type="Button" parent="." unique_id=992540399]
+offset_left = 1909.0
+offset_top = 638.0
+offset_right = 2509.0
+offset_bottom = 938.0
+theme_override_colors/font_color = Color(0.8509804, 0.8509804, 0.8509804, 1)
+theme_override_fonts/font = SubResource("FontVariation_cnqko")
+theme_override_font_sizes/font_size = 150
+theme_override_styles/normal = SubResource("StyleBoxFlat_t6sjl")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_cvuld")
+theme_override_styles/hover = SubResource("StyleBoxFlat_xw8a5")
+text = "GUESS"
+
+[node name="Category" type="Label" parent="." unique_id=1537938820]
+offset_left = -2514.0
+offset_top = -285.0
+offset_right = -1016.0
+offset_bottom = -105.0
+theme_override_colors/font_color = Color(0.8509804, 0.8509804, 0.8509804, 1)
+theme_override_fonts/font = SubResource("FontVariation_joybx")
+theme_override_font_sizes/font_size = 164
+theme_override_styles/normal = SubResource("StyleBoxFlat_2fkg1")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="SpinValue" type="Label" parent="." unique_id=627191276]
+offset_left = 727.0
+offset_top = -81.0
+offset_right = 2209.0
+offset_bottom = 99.0
+theme_override_colors/font_color = Color(0.8509804, 0.8509804, 0.8509804, 1)
+theme_override_fonts/font = SubResource("FontVariation_joybx")
+theme_override_font_sizes/font_size = 164
+theme_override_styles/normal = SubResource("StyleBoxFlat_2fkg1")
+text = "FINAL SPIN:"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Instructions" type="Label" parent="." unique_id=558441904]
+offset_left = 264.0
+offset_top = 326.0
+offset_right = 2497.0
+offset_bottom = 563.0
+theme_override_colors/font_color = Color(0.8509804, 0.8509804, 0.8509804, 1)
+theme_override_fonts/font = SubResource("FontVariation_27ody")
+theme_override_font_sizes/font_size = 164
+theme_override_styles/normal = SubResource("StyleBoxFlat_neceh")
+text = "GUESS A LETTER"
+horizontal_alignment = 1
+vertical_alignment = 1
