@@ -55,7 +55,10 @@ func checkGuess(guess: String) -> void:
 	guessField.editable = false
 	guessField.text = ""
 	guessButton.disabled = true
-	if (guess == targetText):
+	var regex = RegEx.new()
+	regex.compile("[^A-Z ]")
+	var correctText = regex.sub(targetText, "", true)
+	if (guess == correctText):
 		winner = currentGuesser
 		handleWin()
 		return

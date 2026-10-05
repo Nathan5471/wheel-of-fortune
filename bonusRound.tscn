@@ -1,5 +1,6 @@
 [gd_scene format=3 uid="uid://driry1722lkd5"]
 
+[ext_resource type="Script" uid="uid://d35ctugjjspdh" path="res://scripts/bonusRoundManager.gd" id="1_q2ot6"]
 [ext_resource type="PackedScene" uid="uid://df11e00x4tqsy" path="res://board.tscn" id="1_sw8u2"]
 [ext_resource type="FontFile" uid="uid://dp6c2surh0ijj" path="res://assets/Helvetica Black Condensed.otf" id="2_ub133"]
 [ext_resource type="Script" uid="uid://dwp055w6axofy" path="res://scripts/capLock.gd" id="3_ub133"]
@@ -31,6 +32,7 @@ bg_color = Color(0.27058825, 0.68235296, 0.4627451, 1)
 bg_color = Color(0.27058825, 0.68235296, 0.4627451, 1)
 
 [node name="BonusRound" type="Node2D" unique_id=1214676653]
+script = ExtResource("1_q2ot6")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=313300422]
 zoom = Vector2(0.3, 0.3)
@@ -80,13 +82,13 @@ vertical_alignment = 1
 [node name="Instructions" type="Label" parent="." unique_id=1141972042]
 offset_left = 432.0
 offset_top = 919.0
-offset_right = 2685.0
+offset_right = 3063.0
 offset_bottom = 1156.0
 theme_override_colors/font_color = Color(0.8509804, 0.8509804, 0.8509804, 1)
 theme_override_fonts/font = SubResource("FontVariation_q2ot6")
 theme_override_font_sizes/font_size = 164
 theme_override_styles/normal = SubResource("StyleBoxFlat_q2ot6")
-text = "GUESS A CONSANANT"
+text = "GUESS A CONSONANT"
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -115,3 +117,8 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_o6fl4")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_kbugf")
 theme_override_styles/hover = SubResource("StyleBoxFlat_gwe5i")
 text = "GUESS"
+
+[node name="Timer" type="Timer" parent="." unique_id=421047006]
+
+[connection signal="text_submitted" from="GuessField" to="." method="_on_guess_field_text_submitted"]
+[connection signal="pressed" from="GuessButton" to="." method="_on_guess_button_pressed"]
