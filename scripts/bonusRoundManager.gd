@@ -38,7 +38,7 @@ func handleGuess(guess: String) -> void:
 			return
 		handleAddGuessLetter(guess)
 	else:
-		pass
+		handleSolveAttempt(guess)
 		
 func handleAddGuessLetter(guess: String) -> void:
 	var regex = RegEx.new()
@@ -87,6 +87,9 @@ func handleWin() -> void:
 	pass
 
 func _ready() -> void:
+	guessButton.focus_mode = Control.FOCUS_NONE
+	guessField.call_deferred("grab_focus")
+	guessField.keep_editing_on_text_submit = true
 	setup()
 
 func _on_guess_button_pressed() -> void:
@@ -94,3 +97,9 @@ func _on_guess_button_pressed() -> void:
 
 func _on_guess_field_text_submitted(new_text: String) -> void:
 	handleGuess(new_text)
+	guessField.grab_focus()
+
+func _on_timer_timeout() -> void:
+	guessField.editable = false
+	guessField.text = ""
+	guessButton.disabled = true
