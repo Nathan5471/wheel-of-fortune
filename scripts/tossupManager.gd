@@ -38,7 +38,7 @@ func generateListOfUniqueCharacters(string: String) -> Array[String]:
 	list.shuffle()
 	return list
 	
-func setup() -> void:
+func setup(playerNames: Array[String]) -> void:
 	var phraseData = getRandomPhraseAndCategory()
 	targetText = phraseData[0]
 	board.setText(targetText)
@@ -47,6 +47,9 @@ func setup() -> void:
 	category = phraseData[1]
 	categoryLabel.text = category
 	lettersToDisplay = generateListOfUniqueCharacters(targetText)
+	player1Button.text = playerNames[0]
+	player2Button.text = playerNames[1]
+	player3Button.text = playerNames[2]
 	timer.wait_time = 2
 	timer.autostart = true
 	timer.start()
@@ -85,9 +88,10 @@ func checkGuess(guess: String) -> void:
 	timer.start()
 	
 func handleWin() -> void:
-	pass
+	GlobalManager.handleWin(winner, 0)
+
 func _ready() -> void:
-	setup()
+	setup(GlobalManager.playerNames)
 
 func _on_timer_timeout() -> void:
 	if (displayIndex >= lettersToDisplay.size()):

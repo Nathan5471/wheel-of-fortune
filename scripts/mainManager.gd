@@ -11,7 +11,6 @@ var currentSpinValue: int = 0
 var playerNames: Array[String] = ["PLAYER 1", "PLAYER 2", "PLAYER 3"]
 var playerScores: Array[int] = [0, 0, 0]
 var winner: int = -1 # -1 means no current winner
-var inGame: bool = false
 var guessState: GuessState = GuessState.NONE
 @onready var board = $Board
 @onready var categoryLabel = $Category
@@ -30,9 +29,7 @@ func getRandomPhraseAndCategory() -> Array[String]:
 	var phrase = phraseData[category][randi() % phraseData[category].size()]
 	return [phrase, category]
 
-func setupGame(initialPlayerName, initialTurn) -> void: # I need to add input for names eventually (I'll have a starting screen where the players can enter their name)
-	if (inGame):
-		return
+func setupGame(initialPlayerName, initialTurn) -> void:
 	var generatedPhraseAndCategory = getRandomPhraseAndCategory()
 	targetText = generatedPhraseAndCategory[0]
 	board.setText(targetText)
@@ -44,7 +41,6 @@ func setupGame(initialPlayerName, initialTurn) -> void: # I need to add input fo
 	playerNames = initialPlayerName
 	playerScores = [0, 0, 0]
 	winner = -1
-	inGame = true
 	for i in range(3):
 		scoreCards.updatePlayerName(i, playerNames[i])
 		scoreCards.updatePlayerScore(i, playerScores[i])
@@ -65,7 +61,7 @@ func setTurn(turn: int) -> void:
 		buyVowelButton.disabled = true
 	
 func handleWin() -> void:
-	inGame = false
+	GlobalManager.handleWin(winner, max(playerScores[winner], 1000))
 
 func _on_spin_pressed() -> void:
 	buyVowelButton.disabled = true
@@ -125,6 +121,7 @@ func handleGuess() -> void:
 		regex.compile("[^A-Z ]")
 		var correctText = regex.sub(targetText, "", true)
 		if (guessText == correctText):
+			winner = currentTurn
 			handleWin()
 		else:
 			setTurn((currentTurn + 1) if (currentTurn != 2) else 0)

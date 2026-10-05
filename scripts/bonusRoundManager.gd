@@ -6,6 +6,7 @@ var guessedLetters: Array[String] = ["R", "S", "T", "L", "N", "E"]
 var currentGuess: int = 0
 var targetText: String = ""
 var categorty: String = ""
+var won: bool = false
 @onready var board = $Board
 @onready var categoryLabel = $Category
 @onready var guessedLabel = $Guessed
@@ -79,12 +80,13 @@ func handleSolveAttempt(guess: String) -> void:
 	var correctText = regex.sub(targetText, "", true)
 	if (guess == correctText):
 		timer.stop()
+		won = true
 		handleWin()
 		return
 	guessField.text = ""
 
 func handleWin() -> void:
-	pass
+	GlobalManager.handleWin(won, 0)
 
 func _ready() -> void:
 	guessButton.focus_mode = Control.FOCUS_NONE
@@ -103,3 +105,4 @@ func _on_timer_timeout() -> void:
 	guessField.editable = false
 	guessField.text = ""
 	guessButton.disabled = true
+	handleWin()

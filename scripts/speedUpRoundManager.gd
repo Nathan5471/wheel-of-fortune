@@ -61,13 +61,13 @@ func setTurn(turn: int) -> void:
 	guessField.text = ""
 	
 func handleWin() -> void:
-	pass
+	GlobalManager.handleWin(winner, 0 if (winner == -1) else playerScores[winner])
 	
 func _ready() -> void:
 	guessButton.focus_mode = Control.FOCUS_NONE
 	guessField.call_deferred("grab_focus")
 	guessField.keep_editing_on_text_submit = true
-	setupGame(["NATHAN", "POOBERT", "SHREK"], 0)
+	setupGame(GlobalManager.playerNames, GlobalManager.currentStartingPlayer)
 	
 func handleChangeGuess() -> void:
 	guessField.text = ""
@@ -105,6 +105,7 @@ func handleGuess(guess: String) -> void:
 		var correctText = regex.sub(targetText, "", true)
 		if (correctText == guess):
 			timer.stop()
+			winner = currentTurn
 			handleWin()
 		else:
 			guessField.text = ""
