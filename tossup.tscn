@@ -176,4 +176,9 @@ text = "GUESS"
 
 [node name="Timer" type="Timer" parent="." unique_id=757714414]
 
+[connection signal="pressed" from="Player1" to="." method="_on_player_1_pressed"]
+[connection signal="pressed" from="Player2" to="." method="_on_player_2_pressed"]
+[connection signal="pressed" from="Player3" to="." method="_on_player_3_pressed"]
+[connection signal="text_submitted" from="GuessField" to="." method="_on_guess_field_text_submitted"]
+[connection signal="pressed" from="GuessButton" to="." method="_on_guess_button_pressed"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
