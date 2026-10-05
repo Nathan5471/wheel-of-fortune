@@ -4,12 +4,14 @@ const setupScenePath = "res://setup.tscn"
 const mainGamePath = "res://main.tscn"
 const tossupPath = "res://tossup.tscn"
 const speedUpRoundPath = "res://speedUpRound.tscn"
+const selectCategoryPath = "res://selectCategory.tscn"
 const bonusRoundPath = "res://bonusRound.tscn"
 
 var playerNames: Array[String] = ["", "", ""]
 var playerBanks: Array[int] = [0, 0, 0]
 var currentRound: int = 0
 var currentStartingPlayer: int = 0
+var bonusRoundCategory: String = ""
 
 func startGame(player1Name: String, player2Name: String, player3Name: String) -> void:
 	playerNames = [player1Name, player2Name, player3Name]
@@ -49,7 +51,11 @@ func handleWin(winner: int, amount: int) -> void:
 		if (range(3).has(winner)):
 			playerBanks[winner] += amount
 		currentStartingPlayer = playerBanks.find(playerBanks.max())
-		get_tree().change_scene_to_file(bonusRoundPath)
+		get_tree().change_scene_to_file(selectCategoryPath)
 	elif (currentRound == 9):
 		pass
 	currentRound += 1
+
+func startBonusRound(category: String) -> void:
+	bonusRoundCategory = category
+	get_tree().change_scene_to_file(bonusRoundPath)

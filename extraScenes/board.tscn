@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://df11e00x4tqsy"]
 
 [ext_resource type="Script" uid="uid://dwc1qeyimj1pb" path="res://scripts/boardManager.gd" id="1_8l818"]
-[ext_resource type="PackedScene" uid="uid://c8u21wfig4lxw" path="res://boardBlock.tscn" id="1_psm7c"]
+[ext_resource type="PackedScene" uid="uid://c8u21wfig4lxw" path="res://extraScenes/boardBlock.tscn" id="1_psm7c"]
 [ext_resource type="Texture2D" uid="uid://bbu32gvjr8bv8" path="res://assets/board.png" id="3_8l818"]
 
 [node name="Board" type="Node2D" unique_id=1459069373]

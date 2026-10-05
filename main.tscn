@@ -1,9 +1,9 @@
 [gd_scene format=3 uid="uid://cv7x8yf0tofob"]
 
-[ext_resource type="PackedScene" uid="uid://df11e00x4tqsy" path="res://board.tscn" id="1_0xm2m"]
+[ext_resource type="PackedScene" uid="uid://df11e00x4tqsy" path="res://extraScenes/board.tscn" id="1_0xm2m"]
 [ext_resource type="Script" uid="uid://dyx0tc4kfqr0q" path="res://scripts/mainManager.gd" id="1_1bvp3"]
-[ext_resource type="PackedScene" uid="uid://qe26w12dhbv" path="res://wheel.tscn" id="2_h2yge"]
-[ext_resource type="PackedScene" uid="uid://d0h3kspwq1dxd" path="res://scoreCards.tscn" id="3_h2yge"]
+[ext_resource type="PackedScene" uid="uid://qe26w12dhbv" path="res://extraScenes/wheel.tscn" id="2_h2yge"]
+[ext_resource type="PackedScene" uid="uid://d0h3kspwq1dxd" path="res://extraScenes/scoreCards.tscn" id="3_h2yge"]
 [ext_resource type="FontFile" uid="uid://dp6c2surh0ijj" path="res://assets/Helvetica Black Condensed.otf" id="5_lquwl"]
 [ext_resource type="Script" uid="uid://dwp055w6axofy" path="res://scripts/capLock.gd" id="6_7mycd"]
 

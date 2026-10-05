@@ -1,0 +1,96 @@
+[gd_scene format=3 uid="uid://b4cvgyxaywmrb"]
+
+[ext_resource type="FontFile" uid="uid://dp6c2surh0ijj" path="res://assets/Helvetica Black Condensed.otf" id="1_krihf"]
+[ext_resource type="Script" uid="uid://ldkb0spnihpb" path="res://scripts/selectCategoryManager.gd" id="1_omr47"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_krihf"]
+bg_color = Color(0.80784315, 0.1254902, 0.16078432, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_omr47"]
+bg_color = Color(0.9254902, 0.17254902, 0.20392157, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cj8dw"]
+bg_color = Color(0.9268935, 0.17411008, 0.20313969, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_j6hp5"]
+bg_color = Color(0.9764706, 0.84313726, 0.10980392, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_w0d7n"]
+bg_color = Color(0.9764706, 0.84313726, 0.28627452, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_m0l1t"]
+bg_color = Color(0.9764706, 0.84313726, 0.28627452, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_k1ujp"]
+bg_color = Color(0, 0.2784314, 0.67058825, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7lv5t"]
+bg_color = Color(0, 0.3372549, 0.8, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0pq8l"]
+bg_color = Color(0, 0.3372549, 0.8, 1)
+
+[node name="SelectCategory" type="Node2D" unique_id=1209757452]
+script = ExtResource("1_omr47")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=2114912439]
+
+[node name="Background" type="ColorRect" parent="." unique_id=1287505769]
+offset_left = -574.0
+offset_top = -310.0
+offset_right = 575.76843
+offset_bottom = 309.0
+color = Color(0.078431375, 0.68235296, 0.36078432, 1)
+
+[node name="Label" type="Label" parent="." unique_id=2086496801]
+offset_left = -574.0
+offset_top = -310.0
+offset_right = 576.0
+theme_override_fonts/font = ExtResource("1_krihf")
+theme_override_font_sizes/font_size = 64
+text = "CONGRATS {NAME} ON EARNING
+THE MOST MONEY! PLEASE PICK
+YOUR CATEGORY FOR THE
+BONUS ROUND:"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Shrek" type="Button" parent="." unique_id=1586647849]
+offset_left = -540.0
+offset_top = 64.0
+offset_right = -200.0
+offset_bottom = 234.0
+theme_override_fonts/font = ExtResource("1_krihf")
+theme_override_font_sizes/font_size = 82
+theme_override_styles/normal = SubResource("StyleBoxFlat_krihf")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_omr47")
+theme_override_styles/hover = SubResource("StyleBoxFlat_cj8dw")
+text = "SHREK"
+
+[node name="Terra" type="Button" parent="." unique_id=185519422]
+offset_left = -170.0
+offset_top = 64.0
+offset_right = 170.0
+offset_bottom = 234.0
+theme_override_fonts/font = ExtResource("1_krihf")
+theme_override_font_sizes/font_size = 82
+theme_override_styles/normal = SubResource("StyleBoxFlat_j6hp5")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_w0d7n")
+theme_override_styles/hover = SubResource("StyleBoxFlat_m0l1t")
+text = "TERRA"
+
+[node name="Phrases" type="Button" parent="." unique_id=1947584360]
+offset_left = 203.0
+offset_top = 65.0
+offset_right = 543.0
+offset_bottom = 235.0
+theme_override_fonts/font = ExtResource("1_krihf")
+theme_override_font_sizes/font_size = 82
+theme_override_styles/normal = SubResource("StyleBoxFlat_k1ujp")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_7lv5t")
+theme_override_styles/hover = SubResource("StyleBoxFlat_0pq8l")
+text = "PHRASES"
+
+[connection signal="pressed" from="Shrek" to="." method="_on_shrek_pressed"]
+[connection signal="pressed" from="Terra" to="." method="_on_terra_pressed"]
+[connection signal="pressed" from="Phrases" to="." method="_on_phrases_pressed"]

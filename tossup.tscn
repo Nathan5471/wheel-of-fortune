@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://b1in8scxcyhwy"]
 
 [ext_resource type="Script" uid="uid://cn230ac7xm31q" path="res://scripts/tossupManager.gd" id="1_8i74f"]
-[ext_resource type="PackedScene" uid="uid://df11e00x4tqsy" path="res://board.tscn" id="1_qmol6"]
+[ext_resource type="PackedScene" uid="uid://df11e00x4tqsy" path="res://extraScenes/board.tscn" id="1_qmol6"]
 [ext_resource type="FontFile" uid="uid://dp6c2surh0ijj" path="res://assets/Helvetica Black Condensed.otf" id="2_cehu2"]
 [ext_resource type="Script" uid="uid://dwp055w6axofy" path="res://scripts/capLock.gd" id="3_0b2p8"]
 
