@@ -21,7 +21,7 @@ func spinWheel() -> String:
 	tween.tween_property(wheelSprite, "rotation_degrees", targetRotation, 5.0)
 	await tween.finished
 	
-	var landedAngle = wrapf(wheelSprite.rotation_degrees + 5.5, 0.0, 360.0)
-	var landedSliceIndex = wrapf(floor((landedAngle) / degreesPerSlice), 0, 23)
+	var landedAngle = wrapf(wheelSprite.rotation_degrees, 0.0, 360.0)
+	var landedSliceIndex = wrapf(floor((landedAngle + 5.5) / degreesPerSlice), 0, 23)
 	isSpinning = false
 	return wheelValues[landedSliceIndex]

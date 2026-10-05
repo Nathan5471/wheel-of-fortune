@@ -121,3 +121,9 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_neceh")
 text = "GUESS A LETTER"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="Timer" type="Timer" parent="." unique_id=1616425112]
+
+[connection signal="text_submitted" from="GuessField" to="." method="_on_guess_field_text_submitted"]
+[connection signal="pressed" from="GuessButton" to="." method="_on_guess_button_pressed"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
